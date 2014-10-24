@@ -29,8 +29,12 @@
             );
 
             function paginate(e){
+                var event = e.originalEvent;
+                if (!event){
+                    event = e;
+                }
                 if (!scrolling){
-                    if (e.wheelDeltaY > 0) {
+                    if (event.wheelDeltaY > 0) {
                         prevPage();
                     }
                     else {

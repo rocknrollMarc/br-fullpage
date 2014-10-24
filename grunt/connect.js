@@ -4,7 +4,7 @@ module.exports = {
     example: {
         options:{
             base: 'example',
-            port: 8080,
+            port: 8888,
             hostname: 'localhost',
             open: true,
             livereload: true
