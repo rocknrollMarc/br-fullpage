@@ -17,8 +17,8 @@
             var scrolling = false;
 
             angular.element(pages).addClass('br-fullpage');
-            $element.css('height', pageHeight + 'px');
-            angular.element(pages).css('height', pageHeight + 'px');
+            //$element.css('height', pageHeight + 'px');
+            //angular.element(pages).css('height', pageHeight + 'px');
             for (var i = 0; i<pages.length; i++){
                 angular.element(nav).append('<li><i class="br-fullpage-nav-item"></i></li>');
             }
