@@ -10,6 +10,12 @@
     "dist/br-fullpage.min.js",
     "dist/br-fullpage.min.css"
   ],
+  "keywords": [
+    "scrolling",
+    "single_page",
+    "one_page",
+    "sliding"
+  ],
   "license": "MIT",
   "ignore": [
     "**/.*",
