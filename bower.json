@@ -1,0 +1,21 @@
+{
+  "name": "br-fullpage",
+  "version": "1.0.0",
+  "homepage": "https://github.com/BjornRombaut/br-fullpage",
+  "authors": [
+    "Bjorn Rombaut <bjorn.rombaut1991@gmail.com>"
+  ],
+  "description": "Angular directive for full page scrolling applications",
+  "main": [
+    "dist/br-fullpage.min.js",
+    "dist/br-fullpage.min.css"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
