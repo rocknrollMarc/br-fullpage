@@ -6,8 +6,8 @@
         .directive('fullpage', ['$window', FullPage]);
 
     function FullPage($window){
-        function fullPageLink($scope, $element, $attributes){
-            var pages = document.getElementsByClassName($attributes.pageClass);
+        function fullPageLink($scope, $element, $attr){
+            var pages = document.getElementsByClassName($attr.pageClass);
             var nav = document.getElementsByClassName('br-fullpage-nav')[0];
             var pageHeight = $window.innerHeight;
             var pageIndex = sessionStorage.getItem('br-fullpage-index');
@@ -28,11 +28,10 @@
                 'marginTop', '-' + pageHeight * pageIndex + 'px'
             );
 
+
             function paginate(e){
                 var event = window.event || e.originalEvent || e; //equalize event object
-                console.log(event);
                 var delta = event.detail? event.detail*(-120) : event.wheelDelta;
-                console.log(delta);
 
                 if (!scrolling){
                     if (delta > 0) {
@@ -42,7 +41,6 @@
                         nextPage();
                     }
                 }
-                console.log(pageIndex);
                 angular.element(pages[0]).css(
                     'marginTop', '-' + pageHeight * pageIndex + 'px'
                 );
@@ -54,8 +52,6 @@
                     scrolling = false;
                 }, 1200);
             }
-
-
 
             function prevPage() {
                 if (pageIndex !== 0) {
