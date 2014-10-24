@@ -29,19 +29,20 @@
             );
 
             function paginate(e){
-                var event = e.originalEvent;
-                if (!event){
-                    event = e;
-                }
+                var event = window.event || e.originalEvent || e; //equalize event object
+                console.log(event);
+                var delta = event.detail? event.detail*(-120) : event.wheelDelta;
+                console.log(delta);
+
                 if (!scrolling){
-                    if (event.wheelDeltaY > 0) {
+                    if (delta > 0) {
                         prevPage();
                     }
                     else {
                         nextPage();
                     }
                 }
-
+                console.log(pageIndex);
                 angular.element(pages[0]).css(
                     'marginTop', '-' + pageHeight * pageIndex + 'px'
                 );
