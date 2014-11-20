@@ -5,25 +5,56 @@
     <title>br-fullpage Example</title>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="br-fullpage.min.css"/>
+    <style>
+        .page{
+            padding-top: 70px;
+        }
+    </style>
 </head>
 <body>
+<section class="nav navbar navbar-default navbar-fixed-top">
+    <section class="container">
+        <ul class="nav navbar-nav">
+            <li>
+                <a fullpage-href="page1">
+                    Page 1
+                </a>
+            </li>
+            <li>
+                <a fullpage-href="page2">
+                    Page 2
+                </a>
+            </li>
+            <li>
+                <a fullpage-href="page3">
+                    Page 3
+                </a>
+            </li>
+            <li>
+                <a fullpage-href="page4">
+                    Page 4
+                </a>
+            </li>
+        </ul>
+    </section>
+</section>
 <fullpage class="instant-size" page-class="page">
-    <section class="page">
+    <section class="page" id="page1">
         <section class="container">
             <h1>Page 1</h1>
         </section>
     </section>
-    <section class="page">
+    <section class="page" id="page2">
         <section class="container">
             <h1>Page 2</h1>
         </section>
     </section>
-    <section class="page">
+    <section class="page" id="page3">
         <section class="container">
             <h1>Page 3</h1>
         </section>
     </section>
-    <section class="page">
+    <section class="page" id="page4">
         <section class="container">
             <h1>Page 4</h1>
         </section>

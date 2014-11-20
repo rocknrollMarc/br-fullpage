@@ -3,31 +3,63 @@
 
     angular
         .module('br.fullpage', [])
-        .directive('fullpage', ['$window', FullPage]);
+        .directive('fullpage', ['$window', FullPage])
+        .directive('fullpageHref', ['$window', FullpageHref]);
+
+    var nav,
+        pageHeight,
+        pageIndex,
+        pages,
+        scrolling;
+
+    function FullpageHref(){
+        function fullpageHref($scope, $element){
+            $element.css('cursor', 'pointer');
+            $element.on('click', function(){
+                for (var i = 0; i < pages.length; i++) {
+                    if (pages[i].id == $scope.scrollTo){
+                        pageIndex = i;
+                    }
+                }
+                angular.element(pages[0]).css(
+                    'marginTop', '-' + pageHeight * pageIndex + 'px'
+                );
+                angular.element(document.getElementsByClassName('br-fullpage-nav-item')).removeClass('active');
+                angular.element(document.getElementsByClassName('br-fullpage-nav-item')[pageIndex]).addClass('active');
+                sessionStorage.setItem('br-fullpage-index', pageIndex);
+                console.log(pageIndex);
+            });
+        }
+
+        return {
+            scope: {
+                scrollTo: '@fullpageHref'
+            },
+            restrict: 'A',
+            link: fullpageHref
+        }
+    }
 
     function FullPage($window){
-        function fullPageLink($scope, $element, $attr){
-            var pages = document.getElementsByClassName($attr.pageClass);
-            var nav = document.getElementsByClassName('br-fullpage-nav')[0];
-            var pageHeight = $window.innerHeight;
-            var pageIndex = sessionStorage.getItem('br-fullpage-index');
+        function fullPage($scope, $element, $attr){
+            pages = document.getElementsByClassName($attr.pageClass);
+            nav = document.getElementsByClassName('br-fullpage-nav')[0];
+            pageHeight = $window.innerHeight;
+            pageIndex = sessionStorage.getItem('br-fullpage-index');
             if (!pageIndex){
                 pageIndex = 0;
             }
-            var scrolling = false;
-
+            scrolling = false;
             angular.element(pages).addClass('br-fullpage');
-            //$element.css('height', pageHeight + 'px');
-            //angular.element(pages).css('height', pageHeight + 'px');
             for (var i = 0; i<pages.length; i++){
                 angular.element(nav).append('<li><i class="br-fullpage-nav-item"></i></li>');
             }
+
             nav.style.marginTop = (0 - (pages.length * 17)) + 'px';
             angular.element(document.getElementsByClassName('br-fullpage-nav-item')[pageIndex]).addClass('active');
             angular.element(pages[0]).css(
                 'marginTop', '-' + pageHeight * pageIndex + 'px'
             );
-
 
             function paginate(e){
                 var event = window.event || e.originalEvent || e; //equalize event object
@@ -81,7 +113,7 @@
             restrict: 'E',
             transclude: true,
             replace: true,
-            link: fullPageLink
+            link: fullPage
         }
     }
 })();
