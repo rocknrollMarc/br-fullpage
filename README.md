@@ -42,6 +42,23 @@ Tested browsers:
     </section>
   </fullpage>
   ```
+##Navigation
+  You can now use fullpage navigation by using the fullpage-href directive and referencing the id of the page.
+####Example
+#####Navigation
+    ```html
+    <a fullpage-href="page1">
+        Page 1
+    </a>
+    ```
+#####Fullpage
+    ```html
+    <section class="page" id="page1">
+        <section class="container">
+            <h1>Page 1</h1>
+        </section>
+    </section>
+    ```
 ##Attributes
   The fullpage directive currently allows following parameters:
 ####page-class
