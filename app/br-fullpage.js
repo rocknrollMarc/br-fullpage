@@ -10,9 +10,7 @@
         pageHeight,
         pageIndex,
         pages,
-        scrolling,
-        isTouchDevice = navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|BB10|Windows Phone|Tizen|Bada)/),
-        isTouch = (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0) || (navigator.maxTouchPoints));
+        scrolling;
 
     function FullpageHref(){
         function fullpageHref($scope, $element){
@@ -104,18 +102,6 @@
                 }
             }
 
-            angular.element(document).bind("mousewheel", mouseScroll); //IE9, Chrome, Safari, Opera
-            angular.element(document).bind("onmousewheel", mouseScroll); //IE 6-8
-            angular.element(document).bind("wheel", mouseScroll); //Firefox
-
-            angular.element(document).bind("touchstart", startTouch); //Mobile
-            angular.element(document).bind("pointerdown", startTouch); //Mobile
-            angular.element(document).bind("MSPointerDown", startTouch); //Mobile
-
-            angular.element(document).bind("touchmove", endTouch); //Mobile
-            angular.element(document).bind("pointermove", endTouch); //Mobile
-            angular.element(document).bind("MSPointerMove", endTouch); //Mobile
-
             function mouseScroll(e){
                 var event = window.event || e.originalEvent || e;
                 var delta = event.detail? event.detail*(-120) : event.wheelDelta;
@@ -130,6 +116,19 @@
                 var delta = e.pageY - startTouchY;
                 paginate(delta);
             }
+
+            //Event Bindings
+            angular.element(document).bind("mousewheel", mouseScroll); //IE9, Chrome, Safari, Opera
+            angular.element(document).bind("onmousewheel", mouseScroll); //IE 6-8
+            angular.element(document).bind("wheel", mouseScroll); //Firefox
+
+            angular.element(document).bind("touchstart", startTouch); //Mobile
+            angular.element(document).bind("pointerdown", startTouch); //Mobile
+            angular.element(document).bind("MSPointerDown", startTouch); //Mobile
+
+            angular.element(document).bind("touchmove", endTouch); //Mobile
+            angular.element(document).bind("pointermove", endTouch); //Mobile
+            angular.element(document).bind("MSPointerMove", endTouch); //Mobile
 
             //on resize reset pageHeight
             angular.element($window).bind("resize", function(){
