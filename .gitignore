@@ -27,3 +27,4 @@ example/bower_components
 
 # Users Environment Variables
 .lock-wscript
+.idea
