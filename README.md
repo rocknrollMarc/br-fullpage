@@ -6,7 +6,7 @@ Angular Directive for full page scrolling applications.
 ##Installation
     bower install br-fullpage
     
-##Browser Comaptibility
+##Browser Compatibility
 Tested browsers:
 *   IE
 *   Chrome
