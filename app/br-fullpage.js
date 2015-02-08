@@ -108,13 +108,21 @@
                 paginate(delta);
             }
 
-            var startTouchY;
+            var startTouchY,
+                swiping = false;
             function startTouch(e){
-                startTouchY = e.pageY;
+                if (!swiping) {
+                    swiping = true;
+                    startTouchY = e.changedTouches[0].pageY;
+                }
             }
             function endTouch(e){
-                var delta = e.pageY - startTouchY;
-                paginate(delta);
+                var endTouchY = e.changedTouches[0].pageY;
+                if (swiping && endTouchY != startTouchY) {
+                    swiping = false;
+                    var delta = endTouchY - startTouchY;
+                    paginate(delta);
+                }
             }
 
             //Event Bindings
