@@ -5,7 +5,7 @@ module.exports = {
         options:{
             base: 'example',
             port: 4000,
-            hostname: 'localhost',
+            hostname: '0.0.0.0',
             open: true,
             livereload: true
         }
