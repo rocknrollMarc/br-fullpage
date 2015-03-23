@@ -1,20 +1,14 @@
-.instant-size > *{
-    height: 100vh;
-    overflow: hidden;
-}
 .br-fullpage-wrapper{
+    display: none;
     overflow: hidden;
     position: relative;
-    height: 100vh;
 }
 .br-fullpage{
     position:relative;
     width: 100%;
-    overflow: auto;
-    -webkit-transition: margin 1.2s cubic-bezier(0.25,0.1,0.25,1);
-    transition: margin 1.2s cubic-bezier(0.25,0.1,0.25,1);
+    -webkit-transition: margin 1s cubic-bezier(0.25,0.1,0.25,1);
+    transition: margin 1s cubic-bezier(0.25,0.1,0.25,1);
     z-index: 1;
-    height: 100vh;
     overflow: hidden;
 }
 .br-fullpage-nav{
